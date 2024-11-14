@@ -43,7 +43,7 @@
     background-color: #ae000c;
 }
 
-#pokemonName{
+#pokemonSearch{
     flex-grow: 1;
     padding-inline: 10px;
 }
