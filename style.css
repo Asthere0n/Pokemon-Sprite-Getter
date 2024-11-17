@@ -36,6 +36,9 @@
     font-weight: 300;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+.hidden{
+    opacity: 0;
+}
 
 #searchBox{
     width: 300px;

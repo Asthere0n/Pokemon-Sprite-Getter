@@ -6,10 +6,10 @@ function generateURL(name){
 }
 
 //Obtaining the Pokemon Object from API
-function fetchPokemonData (name){
+async function fetchPokemonData (name){
     const URLtoFetch = generateURL(name)
     console.log(URLtoFetch)
-    let pokemonFetched = fetch(URLtoFetch)
+    let pokemonFetched = await fetch(URLtoFetch)
         .then(response =>{
             if (!response.ok){
                 throw new Error ("Pokemon not found")
@@ -17,7 +17,6 @@ function fetchPokemonData (name){
             return response.json()
         })
         .catch(error => console.error(error))
-
     return pokemonFetched
 }
 

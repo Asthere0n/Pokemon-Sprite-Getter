@@ -1,15 +1,16 @@
-import { fetchPokemonData } from "./app/modAPI.js"
-import { resetHTML } from "./app/modHTML.js"
-import {pokemonSearch, getButton} from "./app/variables.js"
-
-let currentPokemon = {}
+import { fetchPokemonData } from "./app/modAPI.js";
+import { resetHTML , printSprite} from "./app/modHTML.js";
+import { pokemonSearch, getButton , pokemonNameTag } from "./app/variables.js";
 
 //Button functionalities
-getButton.addEventListener("click",()=>{
-    if (pokemonSearch.value == ''){
-        resetHTML
-    } else {
-        currentPokemon = fetchPokemonData(pokemonSearch.value)
-        console.log(currentPokemon)
+getButton.addEventListener("click", async () => {
+  if (pokemonSearch.value == "") {
+    resetHTML;
+  } else
+    {
+        const currentPokemon = await fetchPokemonData(pokemonSearch.value.toLowerCase());
+        printSprite(currentPokemon.sprites.front_default)
+        pokemonNameTag.innerHTML = currentPokemon.name[0].toUpperCase()+currentPokemon.name.slice(1)
     }
-})
+  }
+);
